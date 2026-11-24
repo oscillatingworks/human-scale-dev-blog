@@ -171,3 +171,32 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 3em 0; }
   .intro { margin-bottom: 44px; }
   .summary { margin-bottom: 60px; }
 }
+
+/* Click a picture to see it large over a dark backdrop (the lightbox). */
+.post figure img { cursor: zoom-in; }
+.lightbox {
+  width: 100vw;
+  max-width: 100vw;
+  height: 100vh;
+  max-height: 100vh;
+  max-height: 100dvh;
+  height: 100dvh;
+  margin: 0;
+  padding: 2vh 2vw;
+  border: 0;
+  background: transparent;
+  color: #f2efe6;
+  cursor: zoom-out;
+  box-sizing: border-box;
+}
+.lightbox[open] { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.lightbox::backdrop { background: rgb(10, 12, 20); }
+.lightbox img {
+  width: 100%;
+  height: auto;
+  max-height: calc(100vh - 7em);
+  min-height: 0;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+.lightbox-caption { max-width: 60em; margin: 12px 0 0; font-size: 0.85rem; text-align: center; }
