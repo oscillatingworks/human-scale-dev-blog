@@ -1,11 +1,132 @@
-/* A plain starting style. The final look replaces this file. */
-body { margin: 0 auto; max-width: 680px; padding: 1rem; font-family: Inter, system-ui, sans-serif; line-height: 1.6; background: #fbf8f1; color: #1f2a44; }
-a { color: inherit; }
-.site-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2rem; }
-.site-title { font-weight: 700; text-decoration: none; }
-.site-header nav a { margin-left: 1rem; }
-.picture { margin: 0 0 1rem; }
-.picture img { width: 100%; height: auto; image-rendering: pixelated; border: 1px solid #1f2a44; }
-.date, .byline { font-size: 0.9rem; opacity: 0.75; }
-.summary { margin-bottom: 3rem; }
-.site-footer { margin-top: 4rem; font-size: 0.9rem; opacity: 0.8; }
+/* Human Scale dev blog: calm paper, one column, the picture first. */
+:root {
+  --paper: #fbf8f1;
+  --card: #ffffff;
+  --ink: #1f2a44;
+  --soft: #5d6577;
+  --line: #e4ddcc;
+  --accent: #e0a81c;
+  --link: #8a5f00;
+}
+
+* { box-sizing: border-box; }
+
+html { font-size: 18px; -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0 auto;
+  max-width: 720px;
+  padding: 0 20px;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* Header: the name of the game, then a thin line. */
+.site-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 40px 0 24px;
+  margin-bottom: 56px;
+  border-bottom: 1px solid var(--line);
+}
+.site-title { display: block; line-height: 0; }
+.site-title img { display: block; width: 166px; height: 91px; }
+.site-header nav a {
+  margin-left: 20px;
+  color: var(--soft);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+.site-header nav a:hover { color: var(--ink); }
+
+a { color: var(--link); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a:hover { color: var(--ink); }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+h1, h2, h3 { line-height: 1.2; letter-spacing: -0.015em; margin: 0; }
+h1 { font-size: 1.9rem; font-weight: 750; }
+h2 { font-size: 1.3rem; font-weight: 700; margin-top: 2.2em; }
+h3 { font-size: 1rem; font-weight: 700; margin-top: 1.8em; }
+p, ul, ol { margin: 1em 0; }
+li { margin: 0.3em 0; }
+
+.intro { margin: 0 0 64px; color: var(--soft); font-size: 1.1rem; max-width: 34em; }
+
+/* The date line: a short ochre bar, then small capitals. */
+.date {
+  margin: 0 0 8px;
+  color: var(--soft);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.date::before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 3px;
+  margin-right: 8px;
+  background: var(--accent);
+  vertical-align: middle;
+}
+
+/* Pictures are game screenshots: keep the pixels sharp. */
+.picture { margin: 0 0 24px; }
+.picture img, .post p img {
+  display: block;
+  width: 100%;
+  height: auto;
+  image-rendering: pixelated;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+}
+
+/* The list: one post under the other, with much air between them. */
+.summary { margin: 0 0 88px; }
+.summary > a { display: block; }
+.summary h2 { margin-top: 0; font-size: 1.45rem; }
+.summary h2 a { color: var(--ink); text-decoration: none; }
+.summary h2 a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 3px;
+}
+.summary p:last-child { margin: 10px 0 0; color: var(--soft); }
+main > h1 { margin-bottom: 48px; }
+
+.post h1 { margin-bottom: 28px; }
+.post h1 + p { font-size: 1.1rem; }
+.byline { margin-top: 48px; color: var(--soft); font-size: 0.8rem; }
+blockquote { margin: 1.6em 0; padding-left: 18px; border-left: 3px solid var(--accent); color: var(--soft); }
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.88em;
+  background: #f1ecdf;
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+hr { border: 0; border-top: 1px solid var(--line); margin: 3em 0; }
+
+.site-footer {
+  margin-top: 96px;
+  padding: 28px 0 56px;
+  border-top: 1px solid var(--line);
+  color: var(--soft);
+  font-size: 0.8rem;
+}
+.site-footer p { margin: 0 0 6px; }
+
+@media (max-width: 520px) {
+  html { font-size: 17px; }
+  .site-header { padding-top: 24px; margin-bottom: 36px; }
+  .site-title img { width: 124px; height: 68px; }
+  .intro { margin-bottom: 44px; }
+  .summary { margin-bottom: 60px; }
+}
