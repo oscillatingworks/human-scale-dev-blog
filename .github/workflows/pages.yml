@@ -21,12 +21,25 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: https://oscillatingworks.github.io/human-scale-dev-blog/
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
           path: .
+      # GitHub sometimes cannot find the uploaded site right away ("no artifact found"):
+      # wait and try again, twice.
       - id: deployment
+        uses: actions/deploy-pages@v4
+        continue-on-error: true
+      - if: steps.deployment.outcome == 'failure'
+        run: sleep 60
+      - id: retry1
+        if: steps.deployment.outcome == 'failure'
+        uses: actions/deploy-pages@v4
+        continue-on-error: true
+      - if: steps.deployment.outcome == 'failure' && steps.retry1.outcome == 'failure'
+        run: sleep 180
+      - if: steps.deployment.outcome == 'failure' && steps.retry1.outcome == 'failure'
         uses: actions/deploy-pages@v4
