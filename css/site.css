@@ -1,0 +1,11 @@
+/* A plain starting style. The final look replaces this file. */
+body { margin: 0 auto; max-width: 680px; padding: 1rem; font-family: Inter, system-ui, sans-serif; line-height: 1.6; background: #fbf8f1; color: #1f2a44; }
+a { color: inherit; }
+.site-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2rem; }
+.site-title { font-weight: 700; text-decoration: none; }
+.site-header nav a { margin-left: 1rem; }
+.picture { margin: 0 0 1rem; }
+.picture img { width: 100%; height: auto; image-rendering: pixelated; border: 1px solid #1f2a44; }
+.date, .byline { font-size: 0.9rem; opacity: 0.75; }
+.summary { margin-bottom: 3rem; }
+.site-footer { margin-top: 4rem; font-size: 0.9rem; opacity: 0.8; }
