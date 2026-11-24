@@ -78,7 +78,7 @@ li { margin: 0.3em 0; }
 
 /* Pictures are game screenshots: keep the pixels sharp. */
 .picture { margin: 0 0 24px; }
-.picture img, .post p img {
+.picture img, .post p img, .pic img {
   display: block;
   width: 100%;
   height: auto;
@@ -86,6 +86,21 @@ li { margin: 0.3em 0; }
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: 4px;
+}
+
+/* A picture inside a post, with its caption under it. */
+.pic { margin: 2em 0; }
+.pic figcaption { margin-top: 8px; color: var(--soft); font-size: 0.8rem; }
+.ai-made {
+  margin-left: 4px;
+  padding: 1px 6px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
 /* The list: one post under the other, with much air between them. */
