@@ -43,6 +43,32 @@ body {
   text-decoration: none;
 }
 .site-header nav a:hover { color: var(--ink); }
+.site-header nav { display: flex; align-items: center; flex-wrap: wrap; justify-content: flex-end; row-gap: 10px; }
+
+/* The language switch: two letters each, the current one filled. Large enough for a thumb. */
+.lang-switch {
+  display: inline-flex;
+  margin-left: 20px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--card);
+}
+.site-header nav .lang-switch a, .lang-switch span {
+  display: block;
+  min-width: 44px;
+  margin: 0;
+  padding: 9px 10px;
+  color: var(--soft);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+}
+.lang-switch [aria-current] { background: var(--ink); color: var(--paper); }
+.site-header nav .lang-switch a:hover { background: #f1ecdf; color: var(--ink); }
 
 a { color: var(--link); text-underline-offset: 3px; text-decoration-thickness: 1px; }
 a:hover { color: var(--ink); }
